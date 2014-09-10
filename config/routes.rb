@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :ideas
+
+  resources :boards
+
   resources :projects
 
   devise_for :users
