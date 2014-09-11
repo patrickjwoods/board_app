@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :ideas
-
-  resources :boards
-
-  resources :projects
+  resources :projects do
+    resources :boards do
+      resources :ideas
+    end
+  end
 
   devise_for :users
   root 'pages#home'

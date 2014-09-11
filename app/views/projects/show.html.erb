@@ -5,4 +5,15 @@
   <%= @project.name %>
 </p>
 
-<p><%= link_to 'Add New Board', new_board_path, class: "btn btn-primary" %> <p>
+<p><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
+
+<h3>Boards</h3>
+
+<% @boards.each do |board| %>
+  <ul>
+  	<li>
+  		<%=  board.title %>
+		</li>
+	</ul>
+
+<% end %>

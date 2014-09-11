@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.find(params[:project_id])
   end
 
   # GET /boards/1
@@ -28,11 +28,9 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to @board, notice: 'Board was successfully created.' }
-        format.json { render :show, status: :created, location: @board }
+        redirect_to @board, notice: 'Board was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
@@ -69,6 +67,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :description, :projects_id)
+      params.require(:board).permit(:title, :description, :project_id)
     end
 end
