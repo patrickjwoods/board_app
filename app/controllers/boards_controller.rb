@@ -14,7 +14,8 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
-    @board = Board.new
+    @board = Board.find(params[:project_id])
+
   end
 
   # GET /boards/1/edit
