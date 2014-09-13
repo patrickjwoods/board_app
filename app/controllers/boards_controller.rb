@@ -14,7 +14,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
-    @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
     @board = @project.boards.build
   end
 
@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @project = Project.find(params[:project_id])
-    @board = @project.boards.build(params[:board])
+    @board = @project.boards.build(board_params)
 
     if @board.save
       redirect_to @project, notice: 'Board was successfully created.'
@@ -59,6 +59,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :description, :project_id)
+      params.require(:board).permit(:title, :description)
     end
 end

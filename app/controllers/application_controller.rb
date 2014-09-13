@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     projects_path
   end
 
+	def current_project
+    return unless session[:project_id]
+    @current_project ||= Project.find(session[:id])
+	end
+
 end
