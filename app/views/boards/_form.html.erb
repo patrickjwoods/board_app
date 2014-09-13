@@ -1,4 +1,4 @@
-<%= form_for(@board, :url => new_project_board_path) do |f| %>
+<%= form_for([@project,@board]) do |f| %>
   <% if @board.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>

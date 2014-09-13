@@ -14,8 +14,8 @@ class BoardsController < ApplicationController
 
   # GET /boards/new
   def new
-    @board = Board.find(params[:project_id])
-
+    @project = Project.find(params[:project_id])
+    @board = @project.boards.build
   end
 
   # GET /boards/1/edit
@@ -25,28 +25,22 @@ class BoardsController < ApplicationController
   # POST /boards
   # POST /boards.json
   def create
-    @board = Board.new(board_params)
+    @project = Project.find(params[:project_id])
+    @board = @project.boards.build(params[:board])
 
-    respond_to do |format|
-      if @board.save
-        redirect_to @board, notice: 'Board was successfully created.'
-      else
-        render action: 'new'
-      end
+    if @board.save
+      redirect_to @project, notice: 'Board was successfully created.'
+    else
+      render action: 'new'
     end
+    
   end
 
-  # PATCH/PUT /boards/1
-  # PATCH/PUT /boards/1.json
   def update
-    respond_to do |format|
-      if @board.update(board_params)
-        format.html { redirect_to @board, notice: 'Board was successfully updated.' }
-        format.json { render :show, status: :ok, location: @board }
-      else
-        format.html { render :edit }
-        format.json { render json: @board.errors, status: :unprocessable_entity }
-      end
+    if @board.update(board_params)
+      redirect_to @board, notice: 'board was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
@@ -54,10 +48,7 @@ class BoardsController < ApplicationController
   # DELETE /boards/1.json
   def destroy
     @board.destroy
-    respond_to do |format|
-      format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to boards_url
   end
 
   private
