@@ -59,10 +59,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to projects_url
   end
 
   private
@@ -73,7 +70,7 @@ class ProjectsController < ApplicationController
 
     def correct_user
       @project = current_user.projects.find_by(id: params[:id])
-      redirect_to projects_path, notice: "Not authorized to edit this project" if project.nil?
+      redirect_to root_path, notice: "Not authorized to edit this project" if @project.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

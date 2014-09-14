@@ -30,6 +30,7 @@
 		  	<ul class="nav navbar-nav">
 			  	<li><%= link_to "All Projects", projects_path %></li>
 			  	<li><%= link_to "New Project", new_project_path %></li>
+			  	<li><%= @project.name unless @project.nil? %></li>
 		    </ul>
 		  </div><!-- /.navbar-collapse -->
 	  </div>
