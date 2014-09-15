@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-<p><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
+<h3><%= @project.name %></h3>
 
 <h3>Boards</h3>
 
 <% @project.boards.each do |board| %>
   <ul>
   	<li>
-  		<%= board.title  %>
+  		<strong><%= link_to board.title, project_board_path(@project,board) %></strong> — <%= board.description %> 
 		</li>
 	</ul>
 
 <% end %>
+
+<p><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
+

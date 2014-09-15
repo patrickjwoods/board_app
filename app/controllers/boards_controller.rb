@@ -20,6 +20,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/1/edit
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   # POST /boards
@@ -38,7 +39,7 @@ class BoardsController < ApplicationController
 
   def update
     if @board.update(board_params)
-      redirect_to @board, notice: 'board was successfully updated.'
+      redirect_to project_board_path(@project,@board), notice: 'board was successfully updated.'
     else
       render action: 'edit'
     end
