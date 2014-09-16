@@ -7,7 +7,8 @@
 <% @project.boards.each do |board| %>
   <ul>
   	<li>
-  		<strong><%= link_to board.title, project_board_path(@project,board) %></strong> — <%= board.description %> 
+  		<strong><%= link_to board.title, project_board_path(@project,board) %></strong> — <%= board.description %> — <%= link_to 'Delete', project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } %>
+
 		</li>
 	</ul>
 

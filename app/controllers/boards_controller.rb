@@ -49,7 +49,8 @@ class BoardsController < ApplicationController
   # DELETE /boards/1.json
   def destroy
     @board.destroy
-    redirect_to boards_url
+    @project = Project.find(params[:project_id]) # is there a better way to do this? Is this dry? Maybe make it another class?
+    redirect_to @project, notice: 'board was deleted.'
   end
 
   private
