@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @board.title %>
-</p>
+  <h1 class="center">
+  	<%= @board.title %>
+  	<span class="btn btn-default btn-sm">
+  		<%= link_to 'Edit', edit_project_board_path(@board.project_id,@board) %>
+		</span>
+	</h1>
+  
 
-<p>
-  <strong>Description:</strong>
-  <%= @board.description %>
-</p>
+<p class="description center"><%= @board.description %></p>
 
-<%= link_to 'Edit', edit_project_board_path(@board.project_id,@board) %>
