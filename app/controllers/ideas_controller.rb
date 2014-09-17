@@ -14,7 +14,14 @@ class IdeasController < ApplicationController
 
   # GET /ideas/new
   def new
-    @idea = Idea.new
+#    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+#    @board = @project.boards.build
+
+    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+    @board = Board.find(params[:board_id]) # i think they have to be defined to be called in _forms
+    @idea = @board.ideas.build
+
+#    @idea = Idea.new
   end
 
   # GET /ideas/1/edit
@@ -24,17 +31,19 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(idea_params)
 
-    respond_to do |format|
-      if @idea.save
-        format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
-        format.json { render :show, status: :created, location: @idea }
-      else
-        format.html { render :new }
-        format.json { render json: @idea.errors, status: :unprocessable_entity }
-      end
+    # @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+    @board = Board.find(params[:board_id])
+    @idea = @board.ideas.build(idea_params)
+
+
+    if @idea.save
+      redirect_to @project, notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
+    else
+      render action: 'new'  
     end
+
   end
 
   # PATCH/PUT /ideas/1
@@ -54,11 +63,13 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
+ 
+    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+    @board = Board.find(params[:board_id])
+   
     @idea.destroy
-    respond_to do |format|
-      format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to [@project,@board], notice: 'Idea was successfully destroyed.'
+
   end
 
   private

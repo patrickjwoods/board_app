@@ -4,12 +4,15 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
+    @project = Project.find(params[:project_id])
     @boards = Board.find(params[:project_id])
   end
 
   # GET /boards/1
   # GET /boards/1.json
   def show
+    @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+
   end
 
   # GET /boards/new
@@ -26,6 +29,7 @@ class BoardsController < ApplicationController
   # POST /boards
   # POST /boards.json
   def create
+
     @project = Project.find(params[:project_id])
     @board = @project.boards.build(board_params)
 
@@ -34,7 +38,7 @@ class BoardsController < ApplicationController
     else
       render action: 'new'
     end
-    
+
   end
 
   def update

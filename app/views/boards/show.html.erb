@@ -10,3 +10,13 @@
 
 <p class="description center"><%= @board.description %></p>
 
+<% @board.ideas.each do |idea| %>
+	<p class="center">
+		<strong><%= link_to idea.url, idea.url %></strong><br>
+			<%= link_to 'Delete', project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+		</p>
+<% end %>
+
+
+<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %> <p>
