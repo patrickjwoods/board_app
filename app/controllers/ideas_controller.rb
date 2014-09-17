@@ -37,9 +37,8 @@ class IdeasController < ApplicationController
     @board = Board.find(params[:board_id])
     @idea = @board.ideas.build(idea_params)
 
-
     if @idea.save
-      redirect_to @project, notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
+      redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
     else
       render action: 'new'  
     end
