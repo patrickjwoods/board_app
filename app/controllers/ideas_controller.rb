@@ -37,6 +37,7 @@ class IdeasController < ApplicationController
     @board = Board.find(params[:board_id])
     @idea = @board.ideas.build(idea_params)
 
+
     if @idea.save
       redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
     else
@@ -79,6 +80,6 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:url, :image, :board_id)
+      params.require(:idea).permit(:url, :image, :image_remote_url, :board_id)
     end
 end

@@ -12,8 +12,11 @@
 
 <% @board.ideas.each do |idea| %>
 	<p class="center">
-		<strong><%= image_tag idea.image.url(:medium) if idea.image? %><br>
-		<%= link_to idea.url, idea.url %></strong><br>
+		<strong>
+			<%= image_tag idea.image.url(:medium) if idea.image? %><br>
+			<%= image_tag idea.image_remote_url.url(:medium) if idea.image_remote_url? %><br>
+			<%= link_to idea.url, idea.url %>
+		</strong><br>
 			<%= link_to 'Delete', project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 		</p>
