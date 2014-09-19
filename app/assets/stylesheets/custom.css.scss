@@ -27,3 +27,19 @@ h1,h2,h3,p,ul,li { font-weight: lighter; }
 td { padding: 8px 4px; border: 1px solid #333; }
 
 .description { font-size: 25px; }
+
+#ideas { 
+	margin: 0 auto;
+}
+
+.box {
+	float: left;	
+}
+
+.box img {
+	width: 100%; 
+}
+
+.delete { margin-top: -20px; }
+
+.delete a { padding: 10px 8px; }
