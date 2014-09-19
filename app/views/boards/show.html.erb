@@ -10,17 +10,19 @@
 
 <p class="description center"><%= @board.description %></p>
 
-<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %> <p>
+<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %>
 
 
 <div id="ideas">
 	
 	<% @board.ideas.each do |idea| %>
 		<div class="box">
-			<%= image_tag idea.image.url(:medium) if idea.image? %><br>
-			<p class="delete"> <%= link_to 'Delete', project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>
+						<p class="delete"> <%= link_to 'Delete', project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } %></p>	
 			</div>
 	<% end %>
+	<div class="clear"></div>
 	
 </div>
 

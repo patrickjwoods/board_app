@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @idea.url %>
-</p>
+<div id="ideas">
+		<div class="box center">
+			<%=image_tag @idea.image.url %>
+		</div>
+		<p class="center"><%= link_to 'Edit', edit_project_board_idea_path %></p>
+</div>
 
-<p>
-  <strong>Board:</strong>
-  <%= @idea.board_id %>
-</p>
 
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+
