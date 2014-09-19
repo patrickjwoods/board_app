@@ -1,27 +1,17 @@
-<h1>Your Projects</h1>
+<h1 class="center">Your Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<% @projects.each do |project| %>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.name, project %></td>
-        <td><%= project.user.email %></td>
-        <% if project.user == current_user # make sure current user owns this project %>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+  <h2 class="center"><%= link_to project.name, project %></h2>
+
+  <p class="center">
+    <% if project.user == current_user # make sure current user owns this project %>
+      <%= link_to 'Edit', edit_project_path(project) %> | 
+      <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-  </tbody>
-</table>
+  </p>
+  
+<% end %>
 
 <br>
 

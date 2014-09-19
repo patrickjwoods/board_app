@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h3><%= @project.name %></h3>
+  <h1 class="center">
+  	<%= @project.name %>
+	</h1>
 
 <% @project.boards.each do |board| %>
-  <ul>
-  	<li>
-  		<strong><%= link_to board.title, project_board_path(@project,board) %></strong> — <%= board.description %> — <%= link_to 'Delete', project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-		</li>
-	</ul>
+	<h3 class="center">
+		<%= link_to board.title, project_board_path(@project,board) %>
+	</h3>
+	<p class="center">
+		<%= board.description %> — <%= link_to 'Delete', project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
 
 <% end %>
 
-<p><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
+<p class="center"><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
 
