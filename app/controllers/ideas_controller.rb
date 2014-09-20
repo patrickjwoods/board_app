@@ -26,6 +26,8 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
+    @project = Project.find(params[:project_id])
+    @board = Board.find(params[:board_id])
   end
 
   # POST /ideas
