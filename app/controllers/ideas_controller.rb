@@ -10,6 +10,8 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @project = Project.find(params[:project_id])
+    @board = Board.find(params[:project_id])
   end
 
   # GET /ideas/new

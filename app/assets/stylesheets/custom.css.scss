@@ -11,11 +11,12 @@ $jumbotron-bg:								white;
 
 @import 'bootstrap';
 
-.container { width: 100%; }
 
 .center {
      text-align: center;
 }
+
+.navbar { border-radius: 0; }
 
 .navbar-brand {
      font-weight: 300;
@@ -24,9 +25,12 @@ $jumbotron-bg:								white;
 h1,h2,h3,p,ul,li { font-weight: lighter; }
 
 .navbar-secondary { background-color: #bdc3c7; margin-top: -20px; }
-.navbar-secondary a { color: #000; }
-
+.navbar-secondary a { color: #000; border-left: 1px solid #aaa; }
+.new-project { float: right; }
+	.new-project a { border: none; }
 td { padding: 8px 4px; border: 1px solid #333; }
+
+.main-content { width: 100%; }
 
 .description { font-size: 25px; }
 

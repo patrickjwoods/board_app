@@ -10,17 +10,16 @@
 	    <a class="navbar-brand" href="#">Boardmaker</a>
 	  </div>
 
-	  <!-- Collect the nav links, forms, and other content for toggling -->
-	  	<ul class="nav navbar-nav navbar-right">
-	  	  <li><%= link_to "Home", root_path %></li>
-	  	  <% if user_signed_in? %>
-	  	  	<li><%= link_to "Account Settings", edit_user_registration_path %></li>
-	  	    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-	  	  <% else %>
-	  	    <li><%= link_to "Sign in", new_user_session_path %></li>
-	  	  <% end %>
-	    </ul>
-	  </div><!-- /.navbar-collapse -->
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  	<ul class="nav navbar-nav navbar-right">
+  	  <li><%= link_to "Home", root_path %></li>
+  	  <% if user_signed_in? %>
+  	  	<li><%= link_to "Account Settings", edit_user_registration_path %></li>
+  	    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+  	  <% else %>
+  	    <li><%= link_to "Sign in", new_user_session_path %></li>
+  	  <% end %>
+    </ul>
   </div>
 </nav>
 
@@ -29,12 +28,12 @@
 		<div class="container">  
 		  	<ul class="nav navbar-nav">
 			  	<li><%= link_to "All Projects", projects_path %></li>
-			  	<li><a href="#"><%= @project.name unless @project.nil? %></li></a>
-			  	<li><a href="#"><%= @board.title unless @board.nil? %></li></a>
-			  	<li><%= link_to "New Project", new_project_path %></li>
-
+			  	<li><%= link_to @project.name, [@project] unless @project.nil? %></li>
+			  	<li><%= link_to @board.title, [@project, @board] unless @board.nil? %></li>
 		    </ul>
-		  </div><!-- /.navbar-collapse -->
+		    <ul class="nav navbar-nav new-project">
+		    	<li><%= link_to "New Project", new_project_path %></li>
+			</ul>	
 	  </div>
 	</nav>
 <% end %>
