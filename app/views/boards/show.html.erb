@@ -19,7 +19,11 @@
 		<div class="box">
 
 			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>
-						<p class="delete"> <%= link_to 'Delete', project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } %></p>	
+						<p class="delete">
+							<%= link_to project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } do %>
+								<span class='glyphicon glyphicon-trash'></span>
+							<% end %>
+						</p>	
 			</div>
 	<% end %>
 	<div class="clear"></div>

@@ -2,19 +2,21 @@
 
 <% @projects.each do |project| %>
 
-  <h2 class="center"><%= link_to project.name, project %></h2>
+	<div class="project-list">
 
-  <p class="center">
-    <% if project.user == current_user # make sure current user owns this project %>
-      <%= link_to 'Edit', edit_project_path(project) %> | 
-      <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  </p>
+		<p class="project-name"><%= link_to project.name, project %></p>
+
+		<p class="controls">
+	    <% if project.user == current_user # make sure current user owns this project %>
+	      <%= link_to 'Edit', edit_project_path(project) %> | 
+	      <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+	    <% end %>
+  	</p>
+
+  </div>
   
 <% end %>
 
-<br>
-
 <% if user_signed_in? %>
-  <%= link_to 'New Project', new_project_path %>
+<!--   <p><%= link_to 'New Project', new_project_path %><p> -->
 <% end %> 

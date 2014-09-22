@@ -32,7 +32,11 @@
 			  	<li><%= link_to @board.title, [@project, @board] unless @board.nil? %></li>
 		    </ul>
 		    <ul class="nav navbar-nav new-project">
-		    	<li><%= link_to "New Project", new_project_path %></li>
+		    	<li>
+		    		<%= link_to new_project_path do %>
+							<span class="glyphicon glyphicon-plus"></span> New Project
+						<% end %>
+		    	</li>
 			</ul>	
 	  </div>
 	</nav>
