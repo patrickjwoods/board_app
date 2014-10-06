@@ -17,7 +17,11 @@ $jumbotron-bg:								white;
      text-align: center;
 }
 
-.navbar { border-radius: 0; border: 0 }
+.navbar { border-radius: 0; border: 0; }
+
+.navbar-default .navbar-nav > li > a { color: #777; }
+.navbar-default .navbar-nav > li > a:hover { background: #fff; }
+
 
 .navbar-brand {
      font-weight: 300;
