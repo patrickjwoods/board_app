@@ -2,16 +2,19 @@
 
   <h1 class="center">
   	<%= @board.title %>
-  	<span class="btn btn-default btn-sm">
-  		<%= link_to 'Edit', edit_project_board_path(@board.project_id,@board) %>
-		</span>
+  	<% if user_signed_in? %>
+	  	<span class="btn btn-default btn-sm">
+	  		<%= link_to 'Edit', edit_project_board_path(@board.project_id,@board) %>
+			</span>
+		<% end %>
 	</h1>
   
 
 <p class="description center"><%= @board.description %></p>
 
-<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %>
-
+<% if user_signed_in? %>
+	<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %>
+<% end %>
 
 <div id="ideas">
 	
@@ -19,11 +22,13 @@
 		<div class="box">
 
 			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>
-						<p class="delete">
-							<%= link_to project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } do %>
-								<span class='glyphicon glyphicon-trash'></span>
-							<% end %>
-						</p>	
+						<% if user_signed_in? %>
+							<p class="delete">
+								<%= link_to project_board_idea_path(@project,@board,idea), method: :delete, data: { confirm: 'Are you sure?' } do %>
+									<span class='glyphicon glyphicon-trash'></span>
+								<% end %>
+							</p>
+						<% end %>	
 			</div>
 	<% end %>
 	<div class="clear"></div>
