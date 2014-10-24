@@ -1,5 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user
+  before_action :authenticate_user!
 
   # GET /boards
   # GET /boards.json
@@ -61,6 +63,11 @@ class BoardsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_board
       @board = Board.find(params[:id])
+    end
+
+    def correct_user
+      @project = current_user.projects.find_by(id: params[:id]) unless current_user.nil?
+      redirect_to root_path, notice: "You're not authorized." if @project.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

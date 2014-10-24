@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   # GET /projects/1
@@ -67,8 +67,8 @@ class ProjectsController < ApplicationController
     end
 
     def correct_user
-      @project = current_user.projects.find_by(id: params[:id])
-      redirect_to root_path, notice: "Not authorized to edit this project" if @project.nil?
+      @project = current_user.projects.find_by(id: params[:id]) unless current_user.nil?
+      redirect_to root_path, notice: "You're not authorized." if @project.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
