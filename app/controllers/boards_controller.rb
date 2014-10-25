@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user
-  before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
   # GET /boards.json
@@ -45,7 +45,7 @@ class BoardsController < ApplicationController
 
   def update
     if @board.update(board_params)
-      redirect_to project_board_path(@project,@board), notice: 'board was successfully updated.'
+      redirect_to project_board_path, notice: 'board was successfully updated.'
     else
       render action: 'edit'
     end
@@ -66,8 +66,10 @@ class BoardsController < ApplicationController
     end
 
     def correct_user
-      @project = current_user.projects.find_by(id: params[:id]) unless current_user.nil?
-      redirect_to root_path, notice: "You're not authorized." if @project.nil?
+      @this_user = Project.find(params[:project_id])
+      if @this_user.user_id != current_user.id
+        redirect_to root_path, notice: "You're not authorized." if @project.nil?
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
