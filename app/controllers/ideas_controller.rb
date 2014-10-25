@@ -74,7 +74,7 @@ class IdeasController < ApplicationController
     @board = Board.find(params[:board_id])
    
     @idea.destroy
-    redirect_to [@project,@board], notice: 'Idea was successfully destroyed.'
+    redirect_to [@project,@board], notice: 'Idea was successfully delted.'
 
   end
 
@@ -82,6 +82,13 @@ class IdeasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])
+    end
+
+    def correct_user
+      @this_user = Project.find(params[:project_id])
+      if @this_user.user_id != current_user.id
+        redirect_to root_path, notice: "You're not authorized." if @project.nil?
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
