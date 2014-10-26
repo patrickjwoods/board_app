@@ -11,6 +11,7 @@ class Idea < ActiveRecord::Base
 
   validates_presence_of :image_remote_url, :if => :image_url_provided?, :message => 'is invalid or inaccessible'
 
+  validates :image_file_name, presence: true, :unless => :image_url_provided?
 
 private
   

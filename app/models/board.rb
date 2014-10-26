@@ -4,4 +4,7 @@ class Board < ActiveRecord::Base
 
 	accepts_nested_attributes_for :ideas
 
+	validates :title, presence: true
+	validates :description, presence: true
+
 end
