@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user
   before_action :authenticate_user!
+  before_action :correct_user
 
   # GET /ideas
   # GET /ideas.json
@@ -13,7 +13,7 @@ class IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     @project = Project.find(params[:project_id])
-    @board = Board.find(params[:project_id])
+    @board = Board.find(params[:board_id])
   end
 
   # GET /ideas/new

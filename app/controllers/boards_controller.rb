@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /boards
   # GET /boards.json
@@ -67,7 +67,7 @@ class BoardsController < ApplicationController
 
     def correct_user
       @this_user = Project.find(params[:project_id])
-      if @this_user.user_id != current_user.id
+      if @this_user.user_id != current_user.id || current_user.nil?
         redirect_to root_path, notice: "You're not authorized." if @project.nil?
       end
     end
