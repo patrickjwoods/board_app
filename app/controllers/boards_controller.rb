@@ -14,13 +14,12 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
-
   end
 
 #   get "/public/:hash_token" => "boards#public_board", as: "public"
-
 def public_board
-  @board = Board.find_by_hash_token_and_public(params[:hash_token], true)
+  # @board = Board.find_by_hash_token_and_public(params[:hash_token], true)
+  @board = Board.find_by_hash_token(params[:hash_token])
 end
 
   # GET /boards/new
@@ -80,6 +79,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:title, :description)
+      params.require(:board).permit(:title, :description, :public)
     end
 end
