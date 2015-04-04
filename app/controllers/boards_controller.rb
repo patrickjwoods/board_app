@@ -17,6 +17,12 @@ class BoardsController < ApplicationController
 
   end
 
+#   get "/public/:hash_token" => "boards#public_board", as: "public"
+
+def public_board
+  @board = Board.find_by_hash_token_and_public(params[:hash_token], true)
+end
+
   # GET /boards/new
   def new
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
