@@ -43,10 +43,29 @@ td { padding: 8px 4px; border: 1px solid #333; }
 	margin: 0 auto;
 }
 
+
+
+
+#ideas {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  clear: both;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
 .box {
 	float: left;	
 	padding: 5px; 
-	width:300px
+	width:300px;
+	background: none;
+	border: none;
 }
 
 .box img {

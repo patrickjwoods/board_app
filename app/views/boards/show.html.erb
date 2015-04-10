@@ -1,5 +1,17 @@
 <p id="notice"></p>
 
+<script type="text/javascript">
+	$(function () {
+	  var $container = $('#ideas');
+	    $container.imagesLoaded(function(){
+	      $container.masonry({
+	       itemSelector : '.box',
+	       //columnWidth : 300
+	    });
+	  });
+	});
+</script>
+
   <h1 class="center">
   	<%= @board.title %>
   	<% if user_signed_in? %>
@@ -9,8 +21,7 @@
 		<% end %>
 	</h1>
 
-	<p class="center">Share URL: http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></p>
-  
+<p class="center">Share URL: http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></p>  
 
 <p class="description center"><%= @board.description %></p>
 
@@ -18,7 +29,7 @@
 	<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %>
 <% end %>
 
-<div id="ideas">
+<div id="ideas" class="js-masonry transitions-enabled clearfix" >
 	
 	<% @board.ideas.each do |idea| %>
 		<div class="box">
