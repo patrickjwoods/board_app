@@ -28,7 +28,6 @@ $jumbotron-bg:								white;
 }
 
 h1,h2,h3,p,ul,li { font-weight: lighter; }
-h1 { margin-bottom: 50px; }
 
 .navbar-secondary { background-color: #bdc3c7; margin-top: -20px; }
 .navbar-secondary a { color: #000; border-left: 1px solid #aaa; }
@@ -46,11 +45,12 @@ td { padding: 8px 4px; border: 1px solid #333; }
 
 .box {
 	float: left;	
+	padding: 5px; 
+	width:300px
 }
 
 .box img {
 	width: 100%; 
-	padding: 5px; 
 }
 
 .delete { margin-top: -30px; }
