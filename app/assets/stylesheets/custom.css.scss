@@ -29,6 +29,13 @@ $jumbotron-bg:								white;
 
 h1,h2,h3,p,ul,li { font-weight: lighter; }
 
+.btn-sm, .btn-group-sm > .btn {
+  padding: 2px 8px;
+  font-size: 9px;
+  line-height: 1.4;
+  border-radius: 2px;
+}
+
 .navbar-secondary { background-color: #bdc3c7; margin-top: -20px; }
 .navbar-secondary a { color: #000; border-left: 1px solid #aaa; }
 .new-project { float: right; }
@@ -38,6 +45,10 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .main-content { width: 100%; }
 
 .description { font-size: 25px; }
+
+.top { background-color:#eee; margin:0; padding: 10px 5px;}
+.top h1 { font-weight: normal; }
+.top .btn-primary { float: right;}
 
 #ideas { 
 	margin: 0 auto;

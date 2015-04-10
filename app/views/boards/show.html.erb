@@ -12,7 +12,8 @@
 	});
 </script>
 
-  <h1 class="center">
+<div class="top">
+  <h1>
   	<%= @board.title %>
   	<% if user_signed_in? %>
 	  	<span class="btn btn-default btn-sm">
@@ -21,13 +22,17 @@
 		<% end %>
 	</h1>
 
-<p class="center">Share URL: http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></p>  
+	<% if user_signed_in? %>
+		<p><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %></p>
+	<% end %>
 
-<p class="description center"><%= @board.description %></p>
+	<p>Share URL: http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></p>  
 
-<% if user_signed_in? %>
-	<p class="center"><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %>
-<% end %>
+	<p class="description"><%= @board.description %></p>
+
+
+
+</div>
 
 <div id="ideas" class="js-masonry transitions-enabled clearfix" >
 	
@@ -43,9 +48,15 @@
 							</p>
 						<% end %>	
 			</div>
+
 	<% end %>
+
 	<div class="clear"></div>
 		
 </div>
+
+			<% if @board.ideas.size > 12 %>
+			<p><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %></p>		
+		<% end %>
 
 
