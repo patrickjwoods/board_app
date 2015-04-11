@@ -74,7 +74,7 @@ class IdeasController < ApplicationController
     @board = Board.find(params[:board_id])
    
     @idea.destroy
-    redirect_to [@project,@board], notice: 'Idea was successfully delted.'
+    redirect_to [@project,@board], notice: 'Idea was successfully deleted.'
 
   end
 

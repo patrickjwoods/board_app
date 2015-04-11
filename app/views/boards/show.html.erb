@@ -5,10 +5,12 @@
 	  var $container = $('#ideas');
 	    $container.imagesLoaded(function(){
 	      $container.masonry({
-	       itemSelector : '.box',
-	       //columnWidth : 300
+	       itemSelector : '.box', 
+	       //columnWidth: 400,
+	       gutterWidth : 2
 	    });
 	  });
+	    //$('#ideas').masonry({ isFitWidth: true });
 	});
 </script>
 
@@ -22,14 +24,12 @@
 		<% end %>
 	</h1>
 
+	<p class="description"><%= @board.description %></p>
+
+
 	<% if user_signed_in? %>
 		<p><%= link_to 'Add New Idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %></p>
 	<% end %>
-
-	<p>Share URL: http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></p>  
-
-	<p class="description"><%= @board.description %></p>
-
 
 
 </div>

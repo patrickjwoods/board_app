@@ -6,7 +6,9 @@
 			  	<li><%= link_to @project.name, [@project] unless @project.nil? %></li>
 			  	<% if @board %>
 				  	<li><%= link_to @board.title, [@project, @board] unless action_name == "new" %></li>
+				  	<li class="share-hover"><a href="#">Share URL: </a><div class="share-url" >http://boardmaker.herokuapp.com/public/<%= @board.hash_token %></div></li>
 			  	<% end %>
+
 		    </ul>
 		    <ul class="nav navbar-nav new-project">
 		    	<li>

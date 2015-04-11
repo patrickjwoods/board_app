@@ -1,9 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-$body-bg:											#ecf0f1;
+$body-bg:											#fff;
 $font-family-sans-serif:			'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:								45px;
-$navbar-default-bg:						#2c3e50;
+$navbar-default-bg:						#000;
 $navbar-default-brand-color:	#fff;
 $navbar-link-color:						#fff;
 $brand-primary:								#999;
@@ -12,16 +12,16 @@ $jumbotron-bg:								white;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 .center {
      text-align: center;
 }
 
+.main-content { width: 1280px;}
+
 .navbar { border-radius: 0; border: 0; }
 
 .navbar-default .navbar-nav > li > a { color: #777; }
-.navbar-default .navbar-nav > li > a:hover { background: #fff; }
-
+.navbar-default .navbar-nav > li > a:hover { color: #000; background: #fff; }
 
 .navbar-brand {
      font-weight: 300;
@@ -36,34 +36,32 @@ h1,h2,h3,p,ul,li { font-weight: lighter; }
   border-radius: 2px;
 }
 
-.navbar-secondary { background-color: #bdc3c7; margin-top: -20px; }
-.navbar-secondary a { color: #000; border-left: 1px solid #aaa; }
+.navbar-secondary { background-color: #515151; margin-top: -20px; }
+.navbar-secondary a { color: #fff; border-left: 1px solid #aaa; }
+.navbar-secondary a:hover { color: #000; background: #f2f2f2;  }
+
+.share-url { display: none; }
+.share-hover:hover > .share-url { display: block; color: #fff; }
+
 .new-project { float: right; }
 	.new-project a { border: none; }
 td { padding: 8px 4px; border: 1px solid #333; }
 
-.main-content { width: 100%; }
+.description { font-size: 18px; text-align: left; }
 
-.description { font-size: 25px; }
+.top { margin:0 auto; margin-bottom:20px; padding: 10px 5px; width: 1000px; }
+.top h1 { text-align: center; margin-bottom: 20px; }
 
-.top { background-color:#eee; margin:0; padding: 10px 5px;}
-.top h1 { font-weight: normal; }
-.top .btn-primary { float: right;}
+.btn-primary { background-color: #515151; font-weight: 300; border-radius: 0;  }
+
 
 #ideas { 
 	margin: 0 auto;
 }
 
-
-
-
 #ideas {
   margin-bottom: 20px;
-  border-radius: 5px;
   clear: both;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
 }
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
@@ -72,11 +70,13 @@ td { padding: 8px 4px; border: 1px solid #333; }
 
 
 .box {
-	float: left;	
-	padding: 5px; 
-	width:300px;
 	background: none;
 	border: none;
+	margin: 0;
+	margin: 5px;
+	padding: 0;
+	float: left;
+	min-width: 400px;
 }
 
 .box img {
@@ -86,6 +86,9 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .delete { margin-top: -30px; }
 
 .delete a { padding: 10px 8px; }
+
+.board-item .delete { margin: 0; }
+.board-item .delete a { padding: 0; }
 
 /* error styles */
 
@@ -110,5 +113,10 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .project-name a:link { display: block; width: 100%; }
 .project-name a:link { text-decoration: none; }
 
+/* style boards index */
+
+#all-boards { width: 800px; margin: 0 auto; }
+.board-item { margin: 10px 0; padding: 5px 40px; background: #f8f8f8; }
+.board-item:last { margin-bottom: 30px; }
 
 

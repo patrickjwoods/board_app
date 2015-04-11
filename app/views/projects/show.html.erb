@@ -1,4 +1,5 @@
 
+<div id="all-boards">
   <h1 class="center">
   	<%= @project.name %>
 	</h1>
@@ -7,16 +8,24 @@
 		<p>Welcome to your new project! Get Started by adding a new board to collet your ideas.</p>
 	<% end %>
 
-<% @project.boards.each do |board| %>
+	<% @project.boards.each do |board| %>
 
-	<h3 class="center">
-		<%= link_to board.title, project_board_path(@project,board) %>
-	</h3>
-	<p class="center">
-		<%= board.description %> — <%= link_to 'Delete', project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } %>
-	</p>
+		<div class="board-item">
 
-<% end %>
+			<h3 class="center">
+				<%= link_to board.title, project_board_path(@project,board) %>
+			</h3>
+			<p><%= board.description %></p>
+			<p class="delete">
+				<%= link_to project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } do %>
+					<span class='glyphicon glyphicon-trash'></span>
+				<% end %>
+			</p>
 
-<p class="center"><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %> <p>
+		</div>
 
+	<% end %>
+
+	<p class="center"><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %></p>
+
+</div>
