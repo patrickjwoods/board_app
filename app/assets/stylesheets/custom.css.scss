@@ -40,6 +40,8 @@ h1,h2,h3,p,ul,li { font-weight: lighter; }
 .navbar-secondary a { color: #fff; border-left: 1px solid #aaa; }
 .navbar-secondary a:hover { color: #000; background: #f2f2f2;  }
 
+.navbar-secondary li:last-child { color: #fff; border-right: 1px solid #aaa; }
+
 .share-url { display: none; }
 .share-hover:hover > .share-url { display: block; color: #fff; }
 
@@ -47,7 +49,7 @@ h1,h2,h3,p,ul,li { font-weight: lighter; }
 	.new-project a { border: none; }
 td { padding: 8px 4px; border: 1px solid #333; }
 
-.description { font-size: 18px; text-align: left; }
+.description { font-size: 18px; text-align: left; padding: 0 90px; }
 
 .top { margin:0 auto; margin-bottom:20px; padding: 10px 5px; width: 1000px; }
 .top h1 { text-align: center; margin-bottom: 20px; }
@@ -73,7 +75,7 @@ td { padding: 8px 4px; border: 1px solid #333; }
 	background: none;
 	border: none;
 	margin: 0;
-	margin: 5px;
+	margin: 3px 2px;
 	padding: 0;
 	float: left;
 	min-width: 400px;
@@ -83,9 +85,22 @@ td { padding: 8px 4px; border: 1px solid #333; }
 	width: 100%; 
 }
 
-.delete { margin-top: -30px; }
+.idea-meta { 
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: none;
+ }
 
-.delete a { padding: 10px 8px; }
+ .box:hover > .idea-meta { 
+    display: block;
+ }
+
+.username { text-align: right; padding: 10px 20px; color: #fff; font-size: 16px; }
+
+.delete { margin-top: -30px; }
+.delete a { padding: 10px 8px; } 
 
 .board-item .delete { margin: 0; }
 .board-item .delete a { padding: 0; }
@@ -107,16 +122,15 @@ td { padding: 8px 4px; border: 1px solid #333; }
 
 /* style projects index */
 
-.project-list { border-bottom: 1px solid #ccc; margin-bottom: 20px; text-align: center; margin:0; padding: 10px 0; }
-.project-list:hover { background-color: #fff; }
+.project-list { margin-bottom: 20px; text-align: center; margin:0; padding: 10px 0; }
 .project-name { font-weight: lighter; font-size: 28pt; }
 .project-name a:link { display: block; width: 100%; }
 .project-name a:link { text-decoration: none; }
 
 /* style boards index */
 
-#all-boards { width: 800px; margin: 0 auto; }
-.board-item { margin: 10px 0; padding: 5px 40px; background: #f8f8f8; }
-.board-item:last { margin-bottom: 30px; }
+#all-boards, #projects { width: 800px; margin: 0 auto; }
+.board-item, .project-list { margin: 10px 0; padding: 5px 40px; background: #f8f8f8; }
+.board-item:last-of-type { margin-bottom: 30px; }
 
 

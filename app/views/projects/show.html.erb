@@ -8,11 +8,11 @@
 		<p>Welcome to your new project! Get Started by adding a new board to collet your ideas.</p>
 	<% end %>
 
-	<% @project.boards.each do |board| %>
+	<% @project.boards.order("created_at desc").each do |board| %>
 
 		<div class="board-item">
 
-			<h3 class="center">
+			<h3>
 				<%= link_to board.title, project_board_path(@project,board) %>
 			</h3>
 			<p><%= board.description %></p>
@@ -26,6 +26,6 @@
 
 	<% end %>
 
-	<p class="center"><%= link_to 'Add New Board', new_project_board_path(@project), class: "btn btn-primary" %></p>
+	<p><%= link_to '+ add new board', new_project_board_path(@project), class: "btn btn-primary btn-new-board" %></p>
 
 </div>

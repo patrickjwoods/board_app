@@ -17,6 +17,8 @@
  *= require 'masonry/gutters'
  *= require 'masonry/transitions'
 
+ *= require jquery-ui
+
  *= require_tree .
  *= require_self
  
