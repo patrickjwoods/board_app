@@ -11,7 +11,7 @@
 
 <%= render 'layouts/header' %> 
 
-<%= render 'layouts/subnav' unless controller_name == "projects" && action_name == "new"  %> 
+<%= render 'layouts/subnav' unless controller_name == "projects" && action_name == "new" or controller_name == "boards" && action_name == "public_board"  %> 
 
 
 <div class="container main-content">
