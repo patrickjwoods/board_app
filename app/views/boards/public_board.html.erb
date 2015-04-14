@@ -1,5 +1,42 @@
 <p id="notice"></p>
 
+<script type="text/javascript">
+	$(function () {
+	  var $container = $('#ideas');
+	    $container.imagesLoaded(function(){
+	      $container.masonry({
+	       itemSelector : '.box', 
+	       //columnWidth: 400,
+	       gutterWidth : 2
+	    });
+	  });
+	    //$('#ideas').masonry({ isFitWidth: true });
+	    $( "#ideas" ).sortable();
+	    $( "#ideas" ).disableSelection();
+
+	    var $c = $('#ideas'); // this funtion makes masonry sortable
+	    $c.masonry({ 
+	        itemSelector: '.box' 
+	    }); 
+	    $c.sortable({ 
+	        start: function (e, ui) { 
+	            ui.item.removeClass('box'); 
+	            ui.item.css( 'width', '400px');
+	            $c.masonry('reload'); 
+	        }, 
+	        change: function (e, ui) { 
+	            $c.masonry('reload'); 
+	        }, 
+	        stop: function (e, ui) { 
+	            ui.item.addClass('box'); 
+	            $c.masonry('reload'); 
+	        } 
+	    });
+	});
+
+
+</script>
+
   <h1 class="center">
   	<%= @board.title %>
 	</h1>
