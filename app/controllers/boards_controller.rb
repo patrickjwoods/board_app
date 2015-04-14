@@ -20,6 +20,7 @@ class BoardsController < ApplicationController
 def public_board
   # @board = Board.find_by_hash_token_and_public(params[:hash_token], true)
   @board = Board.find_by_hash_token(params[:hash_token])
+  @project = @board.project_id
 end
 
   # GET /boards/new
