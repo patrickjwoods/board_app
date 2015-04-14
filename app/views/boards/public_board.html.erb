@@ -49,7 +49,14 @@
 		<div class="box">
 
 			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>
+
+			<div class="idea-meta">
+
+				<p class="username"><%= @project.user.username %></p>
+
 			</div>
+
+		</div>
 	<% end %>
 	<div class="clear"></div>
 		
