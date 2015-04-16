@@ -4,7 +4,9 @@
 		<div class="center">
 			<%=image_tag @idea.image.url %>
 		</div>
-		<p class="center"><%= link_to 'Edit', edit_project_board_idea_path %></p>
+		<% if @project.user == current_user %>
+			<p class="center"><%= link_to 'Edit', edit_project_board_idea_path %></p>
+		<% end %>
 
 </div>
 
