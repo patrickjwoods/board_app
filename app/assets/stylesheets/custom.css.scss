@@ -102,7 +102,7 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .delete { margin-top: -30px; }
 .delete a { padding: 10px 8px; } 
 
-.board-item .delete { margin: 0; }
+.board-item .delete { margin: 0; padding-top: 20px; font-size: 10px; float: right; }
 .board-item .delete a { padding: 0; }
 
 /* error styles */

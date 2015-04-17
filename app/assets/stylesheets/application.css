@@ -18,6 +18,7 @@
  *= require 'masonry/transitions'
 
  *= require jquery-ui
+ *= require 'dropzone'
 
  *= require_tree .
  *= require_self

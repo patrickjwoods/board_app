@@ -12,15 +12,17 @@
 
 		<div class="board-item">
 
-			<h3>
-				<%= link_to board.title, project_board_path(@project,board) %>
-			</h3>
-			<p><%= board.description %></p>
 			<p class="delete">
 				<%= link_to project_board_path(@project,board), method: :delete, data: { confirm: 'Are you sure?' } do %>
 					<span class='glyphicon glyphicon-trash'></span>
 				<% end %>
 			</p>
+
+			<h3>
+				<%= link_to board.title, project_board_path(@project,board) %>
+			</h3>
+			<p><%= board.description %></p>
+			
 
 		</div>
 
