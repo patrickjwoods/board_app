@@ -52,10 +52,12 @@
 </div>
 
 <% if user_signed_in? %>
-	<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %></p>
+	<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary", data: {no_turbolink: true} %></p>
 <% end %>
 
 <div id="ideas" class="js-masonry transitions-enabled clearfix" >
+
+<%= render 'ideas/form' %>
 	
 	<% @board.ideas.each do |idea| %>
 		<div class="box">
@@ -83,7 +85,7 @@
 </div>
 
 <% if @board.ideas.size > 12 %>
-	<p><%= link_to '+ add new idea     ', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary" %></p>		
+	<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary", data: {no_turbolink: true} %></p>		
 <% end %>
 
 

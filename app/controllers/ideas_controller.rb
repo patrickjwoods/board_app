@@ -43,13 +43,12 @@ class IdeasController < ApplicationController
     @board = Board.find(params[:board_id])
     @idea = @board.ideas.build(idea_params)
 
-
     if @idea.save
-      # render json: { message: "success" }, :status => 200
-      redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
+      render json: { message: "success" }, :status => 200
+      # redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
     else
-      # render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
-      render action: 'new'  
+      render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
+      # render action: 'new'  
     end
 
   end
@@ -75,8 +74,14 @@ class IdeasController < ApplicationController
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
     @board = Board.find(params[:board_id])
    
-    @idea.destroy
-    redirect_to [@project,@board], notice: 'Idea was successfully deleted.'
+    # @idea.destroy
+    # redirect_to [@project,@board], notice: 'Idea was successfully deleted.'
+
+    if @idea.destroy    
+      render json: { message: "File deleted from server" }
+    else
+      render json: { message: @idea.errors.full_messages.join(',') }
+    end
 
   end
 
