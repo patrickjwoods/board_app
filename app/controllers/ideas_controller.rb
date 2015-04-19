@@ -77,11 +77,17 @@ class IdeasController < ApplicationController
     # @idea.destroy
     # redirect_to [@project,@board], notice: 'Idea was successfully deleted.'
 
-    if @idea.destroy    
-      render json: { message: "File deleted from server" }
-    else
-      render json: { message: @idea.errors.full_messages.join(',') }
-    end
+    #if @idea.destroy    
+    #  render json: { message: "File deleted from server" }
+    #else
+    #  render json: { message: @idea.errors.full_messages.join(',') }
+    #end
+
+    respond_to do |format|
+          format.html { redirect_to [@project,@board], notice: 'Idea was successfully deleted.' }
+          format.json { head :no_content }
+          format.js   { render :layout => false }
+        end
 
   end
 
