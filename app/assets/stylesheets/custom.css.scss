@@ -133,4 +133,8 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .board-item, .project-list { margin: 10px 0; padding: 5px 40px; background: #f8f8f8; }
 .board-item:last-of-type { margin-bottom: 30px; }
 
+.new-idea #new_idea { display: none; }
+
+.new-idea #new_idea.dragging { display: block; }
+
 

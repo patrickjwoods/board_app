@@ -14,6 +14,8 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
+    @board = Board.find(params[:id])
+    @idea = Idea.new
   end
 
 #   get "/public/:hash_token" => "boards#public_board", as: "public"

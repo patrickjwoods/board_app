@@ -36,7 +36,26 @@ $(document).ready(function(){
         }
       });
     }
+    });
 
+  var dropTarget = $('#new_idea'),
+      html = $('html'),
+      showDrag = false,
+      timeout = -1;
+
+  html.bind('dragenter', function () {
+      dropTarget.addClass('dragging');
+      showDrag = true; 
+  });
+  html.bind('dragover', function(){
+      showDrag = true; 
+  });
+  /* html.bind('dragleave', function (e) {
+      showDrag = false; 
+      clearTimeout( timeout );
+      timeout = setTimeout( function(){
+          if( !showDrag ){ dropTarget.removeClass('dragging'); }
+      }, 200 ); 
+  });*/
 
   }); 
-});
