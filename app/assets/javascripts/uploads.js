@@ -38,7 +38,7 @@ $(document).ready(function(){
     }
     });
 
-  var dropTarget = $('#new_idea'),
+  var dropTarget = $('.new-idea'),
       html = $('html'),
       showDrag = false,
       timeout = -1;

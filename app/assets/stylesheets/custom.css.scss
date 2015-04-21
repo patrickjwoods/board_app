@@ -136,20 +136,21 @@ td { padding: 8px 4px; border: 1px solid #333; }
 /* 
 .new-idea #new_idea { display: none; }
 */
-.dropzone { border: none; padding: 0; }
+.dropzone { border: none; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px 0; min-height: 50px; }
 .new-idea { border: none; }
-.new-idea #new_idea.dragging { border: 1px solid #ddd; } 
+.new-idea.dragging {  display: block; } 
+.dragging {  display: block; } 
 
 .dz-message span { 
 	border: 1px solid #c7c7c7;
-  margin: 0 400px;
   padding: 20px;
   color: #c7c7c7;
 }
 
-.new-idea { display: none; }
+.new-idea { display: none; padding: 12px; }
 .new-idea .form-group { float: left; }
 .new-idea .btn {   margin-top: 20px; margin-left: 10px; }
+#idea_image_url { width: 300px; }
 
 
 
