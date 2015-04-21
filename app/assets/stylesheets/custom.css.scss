@@ -133,8 +133,25 @@ td { padding: 8px 4px; border: 1px solid #333; }
 .board-item, .project-list { margin: 10px 0; padding: 5px 40px; background: #f8f8f8; }
 .board-item:last-of-type { margin-bottom: 30px; }
 
+/* 
 .new-idea #new_idea { display: none; }
+*/
+.dropzone { border: none; padding: 0; }
+.new-idea { border: none; }
+.new-idea #new_idea.dragging { border: 1px solid #ddd; } 
 
-.new-idea #new_idea.dragging { display: block; }
+.dz-message span { 
+	border: 1px solid #c7c7c7;
+  margin: 0 400px;
+  padding: 20px;
+  color: #c7c7c7;
+}
+
+.new-idea { display: none; }
+.new-idea .form-group { float: left; }
+.new-idea .btn {   margin-top: 20px; margin-left: 10px; }
+
+
+
 
 

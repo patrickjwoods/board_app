@@ -35,6 +35,9 @@
 	});
 
 
+
+
+
 </script>
 
 <div class="top">
@@ -54,8 +57,9 @@
 
 <% if user_signed_in? %>
 
+<p><button class="btn btn-primary btn-new-idea">+ add new idea</button></p>
+
 <div class="new-idea">
-<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary", data: {no_turbolink: true} %></p>
 	<%= render 'ideas/form' %>
 </div>
 
@@ -98,4 +102,13 @@
 	<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary", data: {no_turbolink: true} %></p>		
 <% end %>
 
+<script type="text/javascript">
+	
+	    $( ".btn-new-idea" ).click(function() {
+    	$( ".new-idea" ).toggle( "fast", function() {
+      // Animation complete.
+    });
+  });
+
+</script>
 
