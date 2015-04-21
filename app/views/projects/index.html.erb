@@ -10,6 +10,15 @@ $(function() {
 
 <div id="projects">
 
+	<% if @projects.count == 0 # display only if there are no boards %> 
+		<p>Welcome to boardmaker. Get started by creating your first project.</p>
+		<p>Each project can have lots of boards, and each board will have lots of ideas.</p>
+		<p>For example, you might have a project called "Website Redesign". One board might be called "Sites I Love," and you might have another called "Competitor Websites."</p>
+		<% if user_signed_in? %>
+			<p><%= link_to 'New Project', new_project_path, class: "btn btn-primary" %><p>
+		<% end %> 
+	<% end %>
+
 	<% @projects.order("created_at desc").each do |project| %>
 
 		<div class="project-list">
@@ -29,6 +38,4 @@ $(function() {
 
 </div>
 
-<% if user_signed_in? %>
-<!--   <p><%= link_to 'New Project', new_project_path %><p> -->
-<% end %> 
+

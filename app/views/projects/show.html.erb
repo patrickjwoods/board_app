@@ -5,7 +5,7 @@
 	</h1>
 
 	<% if @boardscount == 0 # display only if there are no boards %> 
-		<p>Welcome to your new project! Get Started by adding a new board to collet your ideas.</p>
+		<p>Welcome to your new project! Get Started by adding a new board to collect your ideas.</p>
 	<% end %>
 
 	<% @project.boards.order("created_at desc").each do |board| %>
