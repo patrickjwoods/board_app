@@ -15,7 +15,7 @@ class BoardsController < ApplicationController
   def show
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
     @board = Board.find(params[:id])
-    @idea = Idea.new
+    @idea = Idea.new # need this for the on-page submission form
   end
 
 #   get "/public/:hash_token" => "boards#public_board", as: "public"
@@ -28,7 +28,7 @@ end
   # GET /boards/new
   def new
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
-    @board = @project.boards.build
+    @board = @project.boards.build 
   end
 
   # GET /boards/1/edit

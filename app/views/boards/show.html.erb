@@ -34,10 +34,6 @@
 	    });
 	});
 
-
-
-
-
 </script>
 
 <div class="top">
@@ -67,8 +63,7 @@
 
 <div id="ideas" class="js-masonry transitions-enabled clearfix" >
 
-	
-	<% @board.ideas.each do |idea| %>
+	<% @board.ideas.each do |idea| # order("created_at desc"). %>
 		<div class="box">
 
 			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>
@@ -77,8 +72,6 @@
 
 							<p class="username"><%= @project.user.username %></p>
 
-						
-
 							<% if @project.user == current_user %>
 								<p class="delete">
 									<%= link_to project_board_idea_path(@project,@board,idea), :remote => true, method: :delete, :class => 'delete_idea', data: { confirm: 'Are you sure?' } do %>
@@ -86,8 +79,6 @@
 									<% end %>
 								</p>
 							<% end %>	
-
-
 
 						</div>
 			</div>
@@ -98,7 +89,7 @@
 		
 </div>
 
-<% if @board.ideas.size > 12 %>
+<% if @board.ideas.size > 9 %>
 	<p><%= link_to '+ add new idea', new_project_board_idea_path(:board_id => @board.id), class: "btn btn-primary", data: {no_turbolink: true} %></p>		
 <% end %>
 
