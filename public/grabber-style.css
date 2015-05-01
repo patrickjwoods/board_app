@@ -35,10 +35,10 @@
 }
 
 #button-toggle span {
-margin:0 10px;
-cursor: pointer;
+	margin:0 10px;
+	cursor: pointer;
 	line-height:38px;
-
+	color: #ffffff;
 }
 
 #button-toggle span:hover {
@@ -111,6 +111,18 @@ display:none;
 }
 .src-url {
 	text-overflow: ellipsis;
-	color: #ffffff;
 	padding: 10px;
 } 
+
+#image-grabber-container div, 
+#image-grabber-container span, 
+#image-grabber-container p, 
+#image-grabber-container a {
+	color: #ffffff;
+	text-align: center;
+}
+
+
+
+
+
