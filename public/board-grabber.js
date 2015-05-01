@@ -27,25 +27,24 @@ function runthis() {
 			var numberOfImages = 0;
 			
 			/*Add css - Must change this if you want to use your own CSS*/
-			jQuery('<style type="text/css">@import url("https://dl.dropboxusercontent.com/u/310727/board_app_files/style.css");</style>').appendTo("head");
+			jQuery('<style type="text/css">@import url("boardmaker.herokuapp.com/grabber-style.css");</style>').appendTo("head");
 						
 			/*Add toggle*/
 			jQuery('body').append('<div id="background-blocker"></div><div id="image-grabber-container"><div id="button-toggle"><span id="close">Close</span></div><ul id="list-of-images"></ul></div>');
-			
 			
 			/*Make toggle work*/
 			jQuery("#button-toggle").click(function() {
 				jQuery("#image-grabber-container, #background-blocker").remove();
 			});
 	
-			/*Find images and add to list*/			
+			/*Find images and add to list*/
 			jQuery('img').each(function() {
 				var _sudoThing = jQuery(this);							
 				addImage(_sudoThing);
 			});
 				
 			/*Find background images and add to list*/
-			/* jQuery('*:visible').each(function() {
+			jQuery('*:visible').each(function() {
 				var _sudoBackground = jQuery(this);
 				var	backgroundImage = _sudoBackground.css('background-image');
 				
@@ -53,7 +52,7 @@ function runthis() {
 				{
 					addImage(_sudoBackground);
 				}			
-			}); */
+			});
 		
 		jQuery('#count').text(numberOfImages);
 		
@@ -61,7 +60,6 @@ function runthis() {
    
 
 	function addImage( imageToAdd ) {
-		
 				
 		var imageURL = imageToAdd.attr('src');
 		console.log(imageURL);
