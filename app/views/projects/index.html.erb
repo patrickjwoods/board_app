@@ -27,7 +27,7 @@ $(function() {
 
 			<p class="controls">
 		    <% if project.user == current_user # make sure current user owns this project %>
-		      <%= link_to 'Edit', edit_project_path(project) %> | 
+		      <%= link_to 'Edit', edit_project_path(project), data: { no_turbolink: true } %> | 
 		      <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
 		    <% end %>
 	  	</p>

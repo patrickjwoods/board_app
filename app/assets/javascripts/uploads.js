@@ -2,7 +2,7 @@ $(document).ready(function(){
   // disable auto discover
   Dropzone.autoDiscover = false;
 
-  // grap our upload form by its id
+  // grab our upload form by its id
   $("#new_idea").dropzone({
     // restrict image size to a maximum 1MB
     // maxFilesize: 1,
@@ -20,6 +20,7 @@ $(document).ready(function(){
       $(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
       // add the dz-success class (the green tick sign)
       $(file.previewElement).addClass("dz-success");
+
     },
 
     //when the remove button is clicked
@@ -33,11 +34,13 @@ $(document).ready(function(){
         url: '/ideas/' + id,
         success: function(data){
           console.log(data.message);
-        }
-      });
-    }
+          }
+        });
+      }
+
     });
 
+  // make dropzone apear on drag
   var dropTarget = $('.new-idea'),
       html = $('html'),
       showDrag = false,
