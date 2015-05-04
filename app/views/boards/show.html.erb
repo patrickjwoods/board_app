@@ -63,7 +63,7 @@
 
 <div id="ideas" class="js-masonry transitions-enabled clearfix" >
 
-	<% @board.ideas.each do |idea| # order("created_at desc"). %>
+	<% @board.ideas.order("created_at desc").each do |idea| # order("created_at desc"). %>
 		<div class="box">
 
 			<%=link_to( image_tag(idea.image.url(:medium)), project_board_idea_path(@project,@board,idea)) if idea.image? %>

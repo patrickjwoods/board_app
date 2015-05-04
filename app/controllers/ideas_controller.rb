@@ -44,8 +44,8 @@ class IdeasController < ApplicationController
     @idea = @board.ideas.build(idea_params)
 
     if @idea.save
-      render json: { message: "success" }, :status => 200
-      # redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
+      # render json: { message: "success" }, :status => 200
+      redirect_to [@project,@board], notice: 'Idea was successfully created.' #this redir to project, needs to be Board#index
     else
       render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
       # render action: 'new'  
@@ -67,10 +67,8 @@ class IdeasController < ApplicationController
     end
   end
 
-  # DELETE /ideas/1
-  # DELETE /ideas/1.json
   def destroy
- 
+
     @project = Project.find(params[:project_id]) # do i need this, or is association enough?
     @board = Board.find(params[:board_id])
    
