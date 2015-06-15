@@ -11,7 +11,7 @@ $(document).ready(function(){
     paramName: "idea[image]",
     maxFilesize: 5, // MB,
     // show remove links on each image upload
-    addRemoveLinks: true, 
+    //addRemoveLinks: true, 
 
     // if the upload was successful
     success: function(file, response){
@@ -20,6 +20,8 @@ $(document).ready(function(){
       $(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
       // add the dz-success class (the green tick sign)
       $(file.previewElement).addClass("dz-success");
+      alert("hi");
+      $location.reload();
 
     },
 
